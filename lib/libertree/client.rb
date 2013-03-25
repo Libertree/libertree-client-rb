@@ -145,16 +145,12 @@ module Libertree
       )
     end
 
-    # @param recipients [Array(Member)]
-    def req_message(message, recipients)
+    def req_message(message, usernames)
       @conn.request(
         'MESSAGE',
         'username'   => message.sender.account.username,
-        'recipients' => recipients.map { |recipient|
-          {
-            'username' => recipient.username,
-            'public_key' => recipient.server ? recipient.server.public_key : @public_key,
-          }
+        'recipients' => usernames.map { |un|
+          { 'username' => un }
         },
         'text'       => message.text
       )
