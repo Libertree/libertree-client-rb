@@ -297,6 +297,7 @@ module Libertree
       xml {|x|
         x.message {
           x.username    message.sender.account.username
+          x.id_         message.id
           x.text_       message.text
           x.recipients  {
             for member in recipients
