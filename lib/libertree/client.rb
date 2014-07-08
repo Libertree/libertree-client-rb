@@ -216,6 +216,7 @@ module Libertree
       xml {|x|
         x.comment_ {
           x.id_         comment.id
+          x.uid         "xmpp:#{origin}?;node=/comments;item=#{comment.id}"
           x.post_id     post.public_id
           x.origin      origin
           x.username    comment.member.username
@@ -316,6 +317,7 @@ module Libertree
         x.post {
           x.username    post.member.username
           x.id_         post.id
+          x.uid         "xmpp:#{@domain}?;node=/posts;item=#{post.id}"
           x.visibility  post.visibility
           x.text_       post.text
           x.via         post.via  if post.via
