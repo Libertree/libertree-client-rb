@@ -245,6 +245,7 @@ module Libertree
           x.uid         "xmpp:#{origin}?;node=/comments;item=#{comment.id}"
           x.post_id     post.public_id
           x.origin      origin
+          x.send('thr:in-reply-to', {ref: "xmpp:#{origin}?;node=/posts;item=#{post.public_id}"})
           x.username    comment.member.username
           x.text_       comment.text
           unless references.empty?
