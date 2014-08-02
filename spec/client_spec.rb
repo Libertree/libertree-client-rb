@@ -154,6 +154,7 @@ XML
         expected =<<XML
 <comment>
   <id>#{@comment.id}</id>
+  <uid>xmpp:#{@domain}?;node=/comments;item=#{@comment.id}</uid>
   <post_id>#{@post.public_id}</post_id>
   <origin>#{@requester.domain}</origin>
   <username>#{@comment.member.username}</username>
@@ -280,6 +281,7 @@ XML
 <post>
   <username>#{@post.member.username}</username>
   <id>#{@post.id}</id>
+  <uid>xmpp:#{@domain}?;node=/posts;item=#{@post.id}</uid>
   <visibility>#{@post.visibility}</visibility>
   <text>#{@post.text}</text>
 </post>
@@ -292,6 +294,7 @@ XML
 <post>
   <username>#{@post.member.username}</username>
   <id>#{@post.id}</id>
+  <uid>xmpp:#{@domain}?;node=/posts;item=#{@post.id}</uid>
   <visibility>#{@post.visibility}</visibility>
   <text>#{@post.text}</text>
   <references>
