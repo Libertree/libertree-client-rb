@@ -157,6 +157,7 @@ XML
   <uid>xmpp:#{@domain}?;node=/comments;item=#{@comment.id}</uid>
   <post_id>#{@post.public_id}</post_id>
   <origin>#{@requester.domain}</origin>
+  <thr:in-reply-to ref="xmpp:#{@requester.domain}?;node=/posts;item=#{@post.public_id}"/>
   <username>#{@comment.member.username}</username>
   <text>#{@comment.text}</text>
 </comment>
@@ -258,6 +259,7 @@ XML
         expected =<<XML
 <message>
   <username>#{@member3.username}</username>
+  <id>#{@message.id}</id>
   <text>#{@message.text}</text>
   <recipients>
     <recipient>
