@@ -15,7 +15,6 @@ describe Libertree::Client do
     @public_key = key.public_key.to_pem
     @contact = "admin@localhost"
     @domain = "localhost"
-    @server_name = "server"
 
     @c = Libertree::Client.new({ private_key: key,
                                  contact: @contact,
@@ -24,7 +23,6 @@ describe Libertree::Client do
 
     @c.instance_variable_set(:@contact, @contact)
     @c.instance_variable_set(:@domain, @domain)
-    @c.instance_variable_set(:@server_name, @server_name)
   end
 
   describe 'build_stanza' do
@@ -224,7 +222,6 @@ XML
 <introduce>
   <public_key>#{@public_key}</public_key>
   <contact>#{@contact}</contact>
-  <server_name>#{@server_name}</server_name>
 </introduce>
 XML
         expect( @c.req_introduce ).to eq(strip_xml(expected))

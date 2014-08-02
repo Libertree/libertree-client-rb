@@ -297,7 +297,6 @@ module Libertree
         x.introduce {
           x.public_key   @public_key
           x.contact      @contact
-          x.server_name  @server_name  if @server_name
         }
       }
     end
