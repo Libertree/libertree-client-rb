@@ -242,7 +242,7 @@ module Libertree
       xml {|x|
         x.comment_ {
           x.id_         comment.id
-          x.uid         "xmpp:#{origin}?;node=/comments;item=#{comment.id}"
+          x.uid         "xmpp:#{@domain}?;node=/comments;item=#{comment.id}"
           x.post_id     post.public_id
           x.origin      origin
           x.send('thr:in-reply-to', {ref: "xmpp:#{origin}?;node=/posts;item=#{post.public_id}"})
