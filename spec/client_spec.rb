@@ -118,8 +118,6 @@ XML
       @member = Libertree::Model::Member.create(
         FactoryGirl.attributes_for(:member, :server_id => @requester.id)
       )
-      @member.profile.description = "foo bar"
-      @member.profile.name_display = "Jim"
 
       @member2 = Libertree::Model::Member.create(
         FactoryGirl.attributes_for(:member, :server_id => @requester.id)
@@ -129,6 +127,8 @@ XML
         FactoryGirl.attributes_for(:account)
       )
       @member3 = local_account.member
+      @member3.profile.description = "foo bar"
+      @member3.profile.name_display = "Jim"
 
       @message = Libertree::Model::Message.create_with_recipients(:text => "hello world", :sender_member_id => @member3.id, :recipient_member_ids => [@member.id, @member2.id])
 
@@ -232,14 +232,14 @@ XML
       it 'produces expected xml' do
         expected =<<XML
 <member>
-  <username>#{@member.username}</username>
+  <username>#{@member3.username}</username>
   <profile>
-    <name_display>#{@member.profile.name_display}</name_display>
+    <name_display>#{@member3.profile.name_display}</name_display>
     <description>foo bar</description>
   </profile>
 </member>
 XML
-        expect( @c.req_member(@member) ).to eq(strip_xml(expected))
+        expect( @c.req_member(@member3) ).to eq(strip_xml(expected))
       end
     end
     describe 'req_member_delete' do
