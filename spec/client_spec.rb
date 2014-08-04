@@ -33,7 +33,7 @@ describe Libertree::Client do
       )
       example = %{
 <iq type="set" to="libertree.localhost.localdomain" id="blather0001">
-  <libertree xmlns="urn:libertree">content</libertree>
+  <libertree xmlns="urn:libertree" xmlns:thr="http://purl.org/syndication/thread/1.0">content</libertree>
 </iq>
 }
       expect(stanza.to_xml).to eq Nokogiri::XML::fragment(example).to_xml.strip
