@@ -183,6 +183,7 @@ XML
         expected =<<XML
 <comment-like>
   <id>#{@comment_like.id}</id>
+  <thr:in-reply-to ref="#{@comment_like.comment.guid}"/>
   <comment_id>#{@comment_like.comment.public_id}</comment_id>
   <origin>#{@comment_like.member.server.domain}</origin>
   <username>#{@comment_like.member.username}</username>
@@ -436,6 +437,7 @@ XML
         expected =<<XML
 <post-like>
   <id>#{@comment_like.id}</id>
+  <thr:in-reply-to ref="#{@post_like.post.guid}"/>
   <post_id>#{@post_like.post.public_id}</post_id>
   <origin>#{@post_like.member.server.domain}</origin>
   <username>#{@post_like.member.username}</username>

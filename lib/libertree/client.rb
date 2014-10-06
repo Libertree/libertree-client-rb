@@ -265,6 +265,7 @@ module Libertree
       xml {|x|
         x.send('comment-like') {
           x.id_         like.id
+          x.send('thr:in-reply-to', {ref: like.comment.guid})
           x.comment_id  like.comment.public_id
           x.origin      origin
           x.username    like.member.username
@@ -411,6 +412,7 @@ module Libertree
       xml {|x|
         x.send('post-like') {
           x.id_       like.id
+          x.send('thr:in-reply-to', {ref: like.post.guid})
           x.post_id   like.post.public_id
           x.origin    origin
           x.username  like.member.username
