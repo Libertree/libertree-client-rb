@@ -228,11 +228,11 @@ module Libertree
       # when the response is empty everything is okay
       if ! response.xpath("//error").empty?
         log_error "Not OK: #{response}"
+        return [ false, response ]
       else
         log "response OK: #{response}"
+        return [ true, response ]
       end
-
-      response
     end
 
     def req_comment(comment, references=[])
